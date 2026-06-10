@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>COMPUTER STORE</title>
+<style>
+body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+    color: #1e3a8a;
+    background-color: #dbeafe;
+    padding: 15px;
+    border-radius: 8px;
+}
+h2 {
+    color: #0f4c5f;
+}
+table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+}
+th {
+    background-color: #2c7da0;
+    color: white;
+    padding: 10px;
+}
+td {
+    background-color: #e9f5f9;
+    color: #1f3b4c;
+    padding: 10px;
+    text-align: center;
+}
+img {
+    border: 4px solid #2c7da0;
+    border-radius: 12px;
+}
+button {
+    background-color: #2c7da0;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #1f5e7a;
+}
+#total-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-top: 20px;
+}
+#selected-product {
+    font-size: 18px;
+    color: #0f4c5f;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>WELCOME TO SAPOH COMPUTER STORE</h1>
+ <h2> Computer has many importance in modern world like it can provide information to people, it can access the internet and global connectivity also its very imprtant to the student because online leaning and assignments, skills development.</h2>
+<p>We sell the best laptops in town</p>
+
+
+<img src="laptop.jp.jpg">
+
+<h2>Our product & price</h2>
+<table border="1">
+    <tr>
+        <th>product category</th>
+        <th>starting price</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>Gaming laptops</td>
+        <td>800000 tsh</td>
+        <td><button onclick="selectProduct('Gaming laptops', 800000)">Select</button></td>
+    </tr>
+    <tr>
+        <td>Office desktops</td>
+        <td>600000 tsh</td>
+        <td><button onclick="selectProduct('Office desktops', 600000)">Select</button></td>
+    </tr>
+    <tr>
+        <td>Monitors and keyboards</td>
+        <td>200000 tsh</td>
+        <td><button onclick="selectProduct('Monitors and keyboards', 200000)">Select</button></td>
+    </tr>
+</table>
+
+<div id="selected-product"></div>
+<div id="total-price"></div>
+
+<button onclick="calculateTotal()">Calculate Total Price</button>
+<button onclick="resetSelection()">Reset</button>
+
+<script>
+let selectedItems = [];
+
+function selectProduct(name, price) {
+    selectedItems.push({ name: name, price: price });
+    updateDisplay();
+}
+
+function calculateTotal() {
+    let total = 0;
+    for (let i = 0; i < selectedItems.length; i++) {
+        total += selectedItems[i].price;
+    }
+    document.getElementById("total-price").innerHTML = "💰 Total Price: " + total + " tsh";
+}
+
+function updateDisplay() {
+    let displayText = "🛒 Selected items: ";
+    for (let i = 0; i < selectedItems.length; i++) {
+        displayText += selectedItems[i].name;
+        if (i < selectedItems.length - 1) displayText += ", ";
+    }
+    if (selectedItems.length === 0) displayText = "No items selected yet";
+    document.getElementById("selected-product").innerHTML = displayText;
+}
+
+function resetSelection() {
+    selectedItems = [];
+    updateDisplay();
+    document.getElementById("total-price").innerHTML = "";
+}
+</script>
+<footer id="footer">
+        <p>Contact 0787747467:   Email: saimorashakanyi@gmail.com</p>
+        <div id="socials">
+        <div id="socials">
+            <a href="">facebook:saimora jumanne</a>
+            <a href="">instagram: saimora general</a>
+        </div>
+    </footer>  
+
+</body>
+</html>
